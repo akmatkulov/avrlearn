@@ -1,1 +1,2 @@
-# avrlearn
+# avrlearn 
+# path to mcu
