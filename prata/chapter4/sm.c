@@ -4,7 +4,7 @@ int main(void)
 {
   float sm;
   char name[20];
-  printf("Enter your name and height:  ");
+  printf("Enter your name and height: ");
   if (scanf("%s %f", name, &sm) != 2){
     return  1;
   }
