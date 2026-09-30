@@ -1,0 +1,5 @@
+# Ignore list
+*.elf
+*.hex
+*.sim1
+*.o
