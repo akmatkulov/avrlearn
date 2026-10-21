@@ -4,10 +4,15 @@
 #include <avr/interrupt.h>
 #define LEDD PORTD
 #define LEDC PORTC
-
+int z = 0;
 ISR(TIMER1_OVF_vect)
 {
-  LEDC ^= (1<<0); 
+  TCNT1 = 49910;
+  if (++z >= 10){
+    z = 0;
+    LEDC ^= (1<<0); 
+  }
+  
 }
 
 int main(void)
@@ -18,7 +23,8 @@ int main(void)
   LEDD = 0b00000000;
   LEDC = 0b0000000;
   TCCR1B = 0b00000101; //clk1024  == 4.2 second
-  TCNT1 = 0;
+  TCNT1 = 49910;
+  
   TIMSK |= (1<<TOIE1); //Access overflow for 1 TimerCounter
   sei(); // Turn ON  global iterrupt
   while (1) 
